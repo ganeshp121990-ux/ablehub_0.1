@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-inter);
+
+  /* Primary - Deep Purple (Logo) */
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  /* Deep Purple */
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+
+  /* Secondary - Lime Green (Logo) */
+  --color-secondary-50: #f7fee7;
+  --color-secondary-100: #ecfccb;
+  --color-secondary-200: #d9f99d;
+  --color-secondary-300: #bef264;
+  --color-secondary-400: #a3e635;
+  --color-secondary-500: #84cc16;
+  /* Lime Green */
+  --color-secondary-600: #65a30d;
+  --color-secondary-700: #4d7c0f;
+
+  --color-background: #ffffff;
+  --color-background-alt: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-foreground-muted: #475569;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #0f172a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    transition: filter 0.2s ease, font-size 0.2s ease;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Accessibility Overrides */
+  html.a11y-high-contrast {
+    filter: contrast(125%) saturate(120%);
+  }
+
+  html.a11y-high-contrast body {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+
+  html.a11y-high-contrast * {
+    border-color: #000000 !important;
+  }
+
+  html.a11y-large-text {
+    font-size: 112.5%;
+    /* 18px base instead of 16px */
+  }
+
+  html.a11y-dyslexia body {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    word-spacing: 0.1em !important;
+    line-height: 1.8 !important;
+  }
+
+  html.a11y-reduced-motion *,
+  html.a11y-reduced-motion *::before,
+  html.a11y-reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
