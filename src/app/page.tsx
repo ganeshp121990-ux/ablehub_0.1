@@ -20,29 +20,17 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <SocialProof />
-
-        {/* Problem / Solution Section */}
         <ProblemSolution />
-
-        {/* Features Showcase */}
         <Features />
-
-        {/* Accessibility Live Demo Block */}
         <Accessibility />
 
-        {/* Founder Story & Core Values */}
         <About />
 
         <ScreenshotsCarousel />
-
-        {/* Keeping old components around as fallbacks for now, but not visible */}
-        {/* <ScreenshotsCarousel /> */}
-        {/* <FAQ /> */}
-
-        {/* Contact form exists below the fold */}
+        
+        <FAQ />
         <Contact />
 
-        <FAQ />
 
       </main>
 
