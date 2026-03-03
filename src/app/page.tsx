@@ -1,31 +1,49 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import ScreenshotsCarousel from "@/components/ScreenshotsCarousel";
-import HowItWorks from "@/components/HowItWorks";
+import SocialProof from "@/components/SocialProof";
+import ProblemSolution from "@/components/ProblemSolution";
 import Features from "@/components/Features";
-import FAQ from "@/components/FAQ";
+import Accessibility from "@/components/Accessibility";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScreenshotsCarousel from "@/components/ScreenshotsCarousel";
+import FAQ from "@/components/FAQ";
+
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-primary-200">
       <Navigation />
 
       <main className="flex-grow">
         <Hero />
+        <SocialProof />
 
-        {/* Removed Mission Placeholder as it was merged conceptually into Hero / Features */}
+        {/* Problem / Solution Section */}
+        <ProblemSolution />
+
+        {/* Features Showcase */}
+        <Features />
+
+        {/* Accessibility Live Demo Block */}
+        <Accessibility />
+
+        {/* Founder Story & Core Values */}
+        <About />
 
         <ScreenshotsCarousel />
 
-        <HowItWorks />
+        {/* Keeping old components around as fallbacks for now, but not visible */}
+        {/* <ScreenshotsCarousel /> */}
+        {/* <FAQ /> */}
 
-        <Features />
+        {/* Contact form exists below the fold */}
+        <Contact />
 
         <FAQ />
 
-        <Contact />
       </main>
 
       <Footer />

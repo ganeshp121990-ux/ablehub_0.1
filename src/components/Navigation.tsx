@@ -11,8 +11,8 @@ export default function Navigation() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
 
-            // Active section highlighting
-            const sections = ['mission', 'how-it-works', 'features', 'faqs'];
+
+            const sections = ['about', 'features', 'faqs'];
             let currentSection = '';
 
             for (const section of sections) {
@@ -34,8 +34,7 @@ export default function Navigation() {
     }, []);
 
     const navLinks = [
-        { name: 'Mission', href: '#mission' },
-        { name: 'How it Works', href: '#how-it-works' },
+        { name: 'About', href: '#about' },
         { name: 'Features', href: '#features' },
         { name: 'FAQs', href: '#faqs' },
     ];
