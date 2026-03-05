@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
 import ProblemSolution from "@/components/ProblemSolution";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -17,7 +16,6 @@ export default function Home() {
 
       <main className="flex-grow">
         <Hero />
-        <SocialProof />
         <ProblemSolution />
         <About />
         <ScreenshotsCarousel />
