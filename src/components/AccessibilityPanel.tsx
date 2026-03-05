@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-// ARIA Live Announcer Region Component
+
 function LiveAnnouncer({ message }: { message: string }) {
     return (
         <div
@@ -19,7 +19,7 @@ export default function AccessibilityPanel() {
     const [isOpen, setIsOpen] = useState(false);
     const [announcement, setAnnouncement] = useState('');
 
-    // Settings State
+
     const [settings, setSettings] = useState({
         largeText: false,
         highContrast: false,
@@ -30,7 +30,7 @@ export default function AccessibilityPanel() {
     const panelRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    // Apply classes to <html> based on settings
+
     const applySettings = useCallback((newSettings: typeof settings) => {
         const html = document.documentElement;
 
@@ -46,7 +46,7 @@ export default function AccessibilityPanel() {
         if (newSettings.reducedMotion) html.classList.add('a11y-reduced-motion');
         else html.classList.remove('a11y-reduced-motion');
 
-        // Save to localStorage
+
         try {
             localStorage.setItem('ablehub-a11y-settings', JSON.stringify(newSettings));
         } catch (e) {
@@ -54,7 +54,7 @@ export default function AccessibilityPanel() {
         }
     }, []);
 
-    // Initialize from LocalStorage
+
     useEffect(() => {
         try {
             const saved = localStorage.getItem('ablehub-a11y-settings');
@@ -70,7 +70,7 @@ export default function AccessibilityPanel() {
 
     const announce = (message: string) => {
         setAnnouncement('');
-        // Slight delay ensures screen readers pick up the change
+
         setTimeout(() => setAnnouncement(message), 50);
     };
 
@@ -95,7 +95,7 @@ export default function AccessibilityPanel() {
         announce("All accessibility settings reset to default.");
     };
 
-    // Keyboard navigation & Focus Trap
+
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && isOpen) {
@@ -104,7 +104,7 @@ export default function AccessibilityPanel() {
                 announce("Accessibility panel closed.");
             }
 
-            // Simple Focus Trap (if panel is open and focused elements exist inside)
+
             if (isOpen && e.key === 'Tab' && panelRef.current) {
                 const focusableElements = panelRef.current.querySelectorAll(
                     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -113,12 +113,12 @@ export default function AccessibilityPanel() {
                 const firstElement = focusableElements[0] as HTMLElement;
                 const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
 
-                if (e.shiftKey) { // Shift + Tab
+                if (e.shiftKey) {
                     if (document.activeElement === firstElement) {
                         lastElement.focus();
                         e.preventDefault();
                     }
-                } else { // Tab
+                } else {
                     if (document.activeElement === lastElement) {
                         firstElement.focus();
                         e.preventDefault();
@@ -131,7 +131,7 @@ export default function AccessibilityPanel() {
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [isOpen]);
 
-    // Trap focus on open
+
     useEffect(() => {
         if (isOpen && panelRef.current) {
             const closeBtn = panelRef.current.querySelector('[data-close-btn]') as HTMLElement;
@@ -153,7 +153,7 @@ export default function AccessibilityPanel() {
         <>
             <LiveAnnouncer message={announcement} />
 
-            {/* Floating Action Button */}
+
             <button
                 ref={buttonRef}
                 onClick={togglePanel}
@@ -169,7 +169,7 @@ export default function AccessibilityPanel() {
                 </svg>
             </button>
 
-            {/* Overlay (Subtle) */}
+
             <div
                 className={`fixed inset-0 bg-slate-900/10 backdrop-blur-[1px] z-40 transition-opacity duration-200 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => {
@@ -179,7 +179,7 @@ export default function AccessibilityPanel() {
                 aria-hidden="true"
             />
 
-            {/* Slide-in Panel */}
+
             <div
                 id="a11y-panel"
                 ref={panelRef}
@@ -242,7 +242,7 @@ export default function AccessibilityPanel() {
     );
 }
 
-// Reusable Toggle Button
+
 function ToggleItem({
     label,
     isActive,
@@ -259,8 +259,8 @@ function ToggleItem({
             onClick={onClick}
             aria-pressed={isActive}
             className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-1 ${isActive
-                    ? 'bg-secondary-50 border-secondary-200 shadow-sm'
-                    : 'bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50'
+                ? 'bg-secondary-50 border-secondary-200 shadow-sm'
+                : 'bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50'
                 }`}
         >
             <div className="flex items-center gap-4">
@@ -273,7 +273,7 @@ function ToggleItem({
                 </span>
             </div>
 
-            {/* Visual Switch Indicator */}
+
             <div className={`relative w-12 h-6 rounded-full transition-colors duration-200 ease-in-out ${isActive ? 'bg-secondary-500' : 'bg-slate-200'
                 }`}>
                 <div className={`absolute left-1 top-1 w-4 h-4 rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out ${isActive ? 'translate-x-6' : 'translate-x-0'

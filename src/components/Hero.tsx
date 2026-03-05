@@ -3,29 +3,29 @@ import Image from "next/image";
 export default function Hero() {
     return (
         <section
-            id="hero"
+            id="home"
             className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white min-h-[90vh] flex items-center"
         >
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-                    {/* Content */}
+
                     <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left transition-all duration-1000 ease-out transform translate-y-0 opacity-100">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-semibold tracking-wide mb-8 border border-primary-100 shadow-sm">
                             <span className="w-1.5 h-1.5 rounded-full bg-secondary-500 animate-pulse"></span>
-                            Accessible Healthcare Platform
+                            Empowering the NDIS Community
                         </div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-6 tracking-tight text-balance">
-                            Bridging the gap to <span className="text-primary-600">inclusive care.</span>
+                            A New Way to Connect,<span className="text-[#6B2B77]">Explore and Belong.</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed text-balance">
-                            Connect with a community that understands you. AbleHub ensures an accessible, safe, and empowering journey for everyone.
+                            Discover New Possibilities, Connect with your Community, and Explore Experiences that Help you Build Friendships, Grow in Confidence, and live a more Connected and Fulfilling life.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                            {/* App Store Badge Equivalent */}
+
                             <a
                                 href="#download-apple"
                                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-lg hover:-translate-y-0.5"
@@ -37,7 +37,7 @@ export default function Hero() {
                                     <span className="text-lg font-semibold leading-none">App Store</span>
                                 </div>
                             </a>
-                            {/* Google Play Badge Equivalent */}
+
                             <a
                                 href="#download-google"
                                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-lg hover:-translate-y-0.5"
@@ -61,18 +61,18 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Visual / Mockup */}
+
                     <div className="relative mx-auto w-full max-w-md lg:max-w-none lg:h-[600px] flex justify-center perspective-[1000px] transition-all duration-1000 delay-200 ease-out transform translate-y-0 opacity-100">
-                        {/* Background Glow */}
+
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary-200/40 rounded-full blur-3xl -z-10"></div>
 
                         <div className="relative w-full max-w-[320px] aspect-[9/19.5] bg-slate-900 rounded-[3.5rem] p-3 shadow-2xl transform rotate-[2deg] hover:rotate-0 transition-transform duration-700 ease-out flex-shrink-0">
-                            {/* Screen */}
+
                             <div className="relative w-full h-full bg-slate-50 rounded-[2.75rem] overflow-hidden border border-slate-800 flex flex-col pt-12 px-5 pb-6">
-                                {/* Dynamic Island / Notch placeholder */}
+
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-slate-900 rounded-b-xl z-20"></div>
 
-                                {/* Abstract UI Elements */}
+
                                 <div className="w-full flex justify-between items-center mb-8 mt-2">
                                     <div className="w-10 h-10 rounded-full bg-slate-200"></div>
                                     <div className="w-8 h-8 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
@@ -96,7 +96,7 @@ export default function Hero() {
                                         </div>
                                     ))}
                                 </div>
-                                {/* Bottom Nav Placeholder */}
+
                                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-1/2 h-1.5 bg-slate-900 rounded-full"></div>
                             </div>
                         </div>

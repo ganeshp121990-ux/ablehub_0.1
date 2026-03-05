@@ -6,32 +6,32 @@ const faqItems = [
     {
         id: "faq-0",
         question: "Who can join AbleHub?",
-        answer: "AbleHub is designed for everyone, with a special focus on individuals seeking an accessible, inclusive, and supportive health-tech community. Whether you have specific accessibility needs or simply value a safe and calm platform, you are welcome here."
+        answer: "Anyone in the NDIS community – participants, support workers, RNs, providers or professionals connected with NDIS – can join."
     },
     {
         id: "faq-1",
         question: "Is it free to use?",
-        answer: "Yes, joining the community and accessing core features is entirely free. We do offer premium features for advanced personalized health management, but our fundamental support network will always remain accessible without cost."
+        answer: "Yes, Able Hub is free to use and available to download on the Apple App Store and Google Play Store."
     },
     {
         id: "faq-2",
-        question: "Is the platform safe?",
-        answer: "Safety is our top priority. We employ strict identity verification, active community moderation, and secure underlying architecture to ensure that every interaction on AbleHub is secure and respectful."
+        question: "Is data secure?",
+        answer: "Yes, we follow strict privacy policies and use modern security technology to keep user data safe."
     },
     {
         id: "faq-3",
         question: "How do you ensure accessibility?",
-        answer: "Our app is built from the ground up to exceed WCAG AA standards. We support native screen readers, high-contrast modes, dynamic text sizing, and reduced motion settings, allowing you to tailor the experience to your exact needs."
+        answer: "The app includes accessibility options so users can adjust fonts, colours and sizes for a better experience."
     },
     {
         id: "faq-4",
-        question: "How is my data protected?",
-        answer: "Your health and personal data are encrypted end-to-end. We comply with major international privacy regulations, meaning your information is never sold to third parties and is only shared with your explicit consent."
+        question: "How can I report abuse?",
+        answer: "You can report issues via the in-app report feature, contact admin through the contact form, or call support."
     },
     {
         id: "faq-5",
-        question: "How can I report abuse?",
-        answer: "You can report any concerning behavior directly from a user's profile, within a message thread, or by contacting our 24/7 moderation team. Reports are handled confidentially and urgently."
+        question: "What should I do if I need help?",
+        answer: "You can reach out through the help section in the app, contact support, or use the contact form for assistance."
     }
 ];
 
@@ -47,7 +47,7 @@ export default function FAQ() {
             <div className="container mx-auto px-6 max-w-4xl">
                 <div className="text-center mb-16 lg:mb-24">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                        Frequently Asked <span className="text-primary-600">Questions</span>
+                        Frequently Asked <span className="text-[#6B2B77]">Questions</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 leading-relaxed text-balance">
                         Everything you need to know about the AbleHub platform and community.

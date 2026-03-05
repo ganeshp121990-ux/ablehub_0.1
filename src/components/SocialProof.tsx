@@ -29,7 +29,7 @@ export default function SocialProof() {
         <section className="py-24 bg-white border-b border-slate-100 relative overflow-hidden">
             <div className="container mx-auto px-6 max-w-7xl">
 
-                {/* Logo Strip */}
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function SocialProof() {
                         Trusted by inclusive organizations
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale">
-                        {/* Placeholder Logos */}
+
                         <div className="h-8 flex items-center font-bold text-xl text-slate-800 gap-2">
                             <div className="w-6 h-6 rounded-md bg-slate-800"></div> Beta Community
                         </div>
@@ -57,7 +57,7 @@ export default function SocialProof() {
                     </div>
                 </motion.div>
 
-                {/* Testimonials */}
+
                 <div className="grid md:grid-cols-3 gap-8">
                     {testimonials.map((testimonial, i) => (
                         <motion.div
@@ -80,7 +80,7 @@ export default function SocialProof() {
                             </p>
                             <div className="flex items-center gap-4 mt-auto">
                                 <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-200 shrink-0">
-                                    {/* Using standard img tag to avoid Next.js external domain config issues for placeholders */}
+
                                     <img src={testimonial.avatar} alt={testimonial.author} className="object-cover w-full h-full" />
                                 </div>
                                 <div>

@@ -13,13 +13,13 @@ export default function Contact() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
+
         setTimeout(() => {
             setIsSubmitting(false);
             setIsSuccess(true);
             setFormData({ name: "", email: "", message: "" });
 
-            // Reset after 5 seconds
+
             setTimeout(() => setIsSuccess(false), 5000);
         }, 1500);
     };
@@ -30,21 +30,21 @@ export default function Contact() {
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-                    {/* Left Column: Copy & Trust Points */}
+                    
                     <div className="max-w-xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-bold tracking-wide mb-8 border border-primary-100">
                             Get in Touch
                         </div>
 
                         <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1]">
-                            Let's build a more <span className="text-primary-600">inclusive internet.</span>
+                            We’re here to help  <span className="text-[#6B2B77]">let’s connect.</span>
                         </h2>
 
                         <p className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed">
-                            Whether you're exploring enterprise accessibility partnerships, have questions about AblePlus, or need support, our dedicated team is here to help.
+                            Have a question or need support? Get in touch and our team will be happy to assist you. We aim to respond quickly and provide the help you need.
                         </p>
 
-                        {/* Trust Points */}
+                        
                         <div className="space-y-8 mb-12">
                             <div className="flex gap-4 items-start">
                                 <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
@@ -67,7 +67,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* Contact Info */}
+                        
                         <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                             <a href="mailto:hello@ablehub.app" className="flex items-center gap-4 text-slate-700 hover:text-primary-600 transition-colors group mb-4">
                                 <Mail className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
@@ -80,9 +80,9 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* Right Column: Clean Form */}
+                    
                     <div className="relative">
-                        {/* Background decor */}
+                        
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120%] bg-gradient-to-br from-primary-50 to-secondary-50 rounded-[3rem] -z-10 rotate-3 scale-105 opacity-50"></div>
 
                         <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden">

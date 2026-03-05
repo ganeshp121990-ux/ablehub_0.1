@@ -1,140 +1,165 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
 
+            const sections = ['home', 'problem-solution', 'about', 'contact'];
+            let currentSection = 'home';
 
-            const sections = ['about', 'features', 'faqs'];
-            let currentSection = '';
-
+            
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
-                    if (rect.top <= 150 && rect.bottom >= 150) {
+                    if (rect.top <= 200 && rect.bottom >= 200) {
                         currentSection = section;
                         break;
                     }
                 }
             }
 
+           
             setActiveSection(currentSection);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const navLinks = [
+        { name: 'Home', href: '#home' },
+        { name: 'ProblemSolution', href: '#problem-solution' },
         { name: 'About', href: '#about' },
-        { name: 'Features', href: '#features' },
-        { name: 'FAQs', href: '#faqs' },
+        { name: 'Contact', href: '#contact' },
     ];
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                ? 'bg-white/90 backdrop-blur-md border-b border-slate-200 py-3 shadow-sm'
-                : 'bg-transparent py-5'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[88px] flex items-center ${isScrolled
+                ? 'bg-white/70 backdrop-blur-xl border-b border-slate-200/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)]'
+                : 'bg-transparent'
                 }`}
         >
-            <div className="container mx-auto px-6 max-w-7xl">
+            <div className="container mx-auto px-6 max-w-7xl w-full">
                 <div className="flex items-center justify-between">
-                    {/* Logo */}
-                    <a href="#" className="flex items-center gap-2 z-50 group" aria-label="AbleHub Home">
-                        <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-secondary-500 group-hover:scale-105 transition-transform duration-300">
-                            {/* Abstract Bridge & People */}
-                            <path d="M4 28C14 16 26 16 36 28" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                            <path d="M12 26V12M28 26V12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                            <path d="M12 16H28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                            <circle cx="20" cy="22" r="2.5" fill="currentColor" />
-                            <path d="M20 24.5V30M18 30L20 26L22 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <div className="flex flex-col justify-center">
-                            <span className="text-[1.35rem] font-extrabold tracking-tight text-primary-700 leading-none font-sans" style={{ letterSpacing: '-0.05em' }}>ablehub</span>
-                            <span className="text-[0.45rem] font-bold tracking-[0.1em] text-primary-900 leading-none mt-0.5 uppercase">Bridging Community Together</span>
-                        </div>
+                        
+                    <a
+                        href="#home"
+                        className="flex items-center z-50 group origin-left"
+                        aria-label="AbleHub Home"
+                    >
+                        <Image
+                            src="/Able_Logo.svg"
+                            alt="AbleHub Logo"
+                            width={260}
+                            height={80}
+                            priority
+                            className="w-56 md:w-64 h-auto transition-transform duration-300 group-hover:scale-105"
+                        />
                     </a>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
-                        <ul className="flex items-center gap-8">
+                    
+                    <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
+                        <ul className="flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-2xl border border-slate-200/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
                             {navLinks.map((link) => (
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className={`text-sm font-medium transition-colors relative py-2 ${activeSection === link.href.substring(1)
-                                            ? 'text-slate-900'
-                                            : 'text-slate-500 hover:text-slate-900'
-                                            }`}
+                                        className="relative px-4 py-2 text-sm font-medium transition-colors group block"
                                     >
-                                        {link.name}
+                                        <span className={`relative z-10 transition-colors duration-200 ${activeSection === link.href.substring(1)
+                                            ? 'text-slate-900'
+                                            : 'text-slate-500 group-hover:text-slate-900'
+                                            }`}>
+                                            {link.name}
+                                        </span>
                                         {activeSection === link.href.substring(1) && (
-                                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary-600 rounded-full" />
+                                            <motion.div
+                                                layoutId="desktop-nav-indicator"
+                                                className="absolute inset-0 bg-slate-100 rounded-xl"
+                                                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                                            />
                                         )}
+                                            
+                                        <div className="absolute inset-0 bg-slate-50 rounded-xl opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 z-0" />
                                     </a>
                                 </li>
                             ))}
                         </ul>
+                    </nav>
+
+                        
+                    <div className="hidden md:flex items-center">
                         <a
                             href="#contact"
-                            className="px-5 py-2.5 rounded-full bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 hover:shadow-md transition-all active:scale-95"
+                            className="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 hover:shadow-[0_8px_20px_-6px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                         >
                             Get Early Access
                         </a>
-                    </nav>
+                    </div>
 
-                    {/* Mobile Menu Toggle */}
+                        
                     <button
-                        className="md:hidden p-2 z-50 relative w-10 h-10 focus:outline-none"
+                        className="md:hidden p-2 z-50 relative w-10 h-10 focus:outline-none text-slate-800 transition-transform active:scale-95 flex items-center justify-center bg-white/50 backdrop-blur-sm rounded-xl border border-slate-200/60"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle Menu"
                     >
-                        <span className={`absolute left-2.5 block w-5 h-[2px] bg-slate-900 transition-all duration-300 ${isMobileMenuOpen ? 'top-1/2 -rotate-45 -translate-y-1/2' : 'top-[14px]'
-                            }`} />
-                        <span className={`absolute left-2.5 top-1/2 block w-5 h-[2px] bg-slate-900 -translate-y-1/2 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
-                            }`} />
-                        <span className={`absolute left-2.5 block w-5 h-[2px] bg-slate-900 transition-all duration-300 ${isMobileMenuOpen ? 'top-1/2 rotate-45 -translate-y-1/2' : 'bottom-[14px]'
-                            }`} />
+                        {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            <div className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
-                }`}>
-                <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
-                    <ul className="flex flex-col items-center gap-6 text-center w-full">
-                        {navLinks.map((link) => (
-                            <li key={link.name} className="w-full border-b border-slate-100 pb-4">
-                                <a
-                                    href={link.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className={`text-xl font-medium ${activeSection === link.href.substring(1) ? 'text-primary-600' : 'text-slate-600'
-                                        }`}
-                                >
-                                    {link.name}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                    <a
-                        href="#contact"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="w-full max-w-xs py-4 text-center rounded-full bg-primary-600 text-white font-medium shadow-md"
+                            
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        exit={{ opacity: 0, y: -10, filter: 'blur(10px)', transition: { duration: 0.2 } }}
+                        transition={{ duration: 0.4, type: 'spring', bounce: 0 }}
+                        className="md:hidden absolute top-[72px] left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-slate-200/50 shadow-xl overflow-hidden"
                     >
-                        Get Early Access
-                    </a>
-                </div>
-            </div>
+                        <div className="flex flex-col px-6 py-6 gap-6">
+                            <ul className="flex flex-col gap-2">
+                                {navLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <a
+                                            href={link.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className={`block px-4 py-3 text-lg font-medium rounded-xl transition-colors ${activeSection === link.href.substring(1)
+                                                ? 'bg-slate-50 text-slate-900'
+                                                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                                                }`}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="pt-4 border-t border-slate-100">
+                                <a
+                                    href="#contact"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="flex justify-center w-full px-5 py-3.5 rounded-xl bg-slate-900 text-white font-medium shadow-md active:scale-95 transition-transform"
+                                >
+                                    Get Early Access
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

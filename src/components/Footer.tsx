@@ -10,13 +10,16 @@ export default function Footer() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
 
-                    {/* Brand & Mission */}
+
                     <div className="lg:col-span-4">
-                        <Link href="/" className="inline-flex items-center gap-2 mb-6 text-white hover:opacity-90 transition-opacity">
-                            <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
-                                <span className="text-white font-extrabold text-xl font-mono leading-none tracking-tighter">AH</span>
-                            </div>
-                            <span className="text-2xl font-extrabold tracking-tight">AbleHub</span>
+                        <Link href="/" className="inline-block mb-6 hover:opacity-90 transition-opacity">
+                            <img
+                                src="/Able_Logo.svg"
+                                alt="AbleHub Logo"
+                                width={260}
+                                height={80}
+                                className="w-64 md:w-72 lg:w-80 h-auto transition-transform duration-300"
+                            />
                         </Link>
                         <p className="text-slate-400 leading-relaxed mb-8 max-w-sm">
                             Building the internet's most profoundly accessible, secure, and supportive digital community space. Inclusive design isn't a feature; it's our foundation.
@@ -38,18 +41,18 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Product */}
+
                     <div className="lg:col-span-2">
                         <h4 className="text-white font-bold mb-6 tracking-wide">Product</h4>
                         <ul className="space-y-4">
-                            <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                            <li><a href="#accessibility" className="hover:text-white transition-colors">Accessibility Layer</a></li>
+                            <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
+                            <li><a href="#ProblemSolution" className="hover:text-white transition-colors">ProblemSolution</a></li>
 
                             <li><a href="#" className="hover:text-white transition-colors">For Organizations</a></li>
                         </ul>
                     </div>
 
-                    {/* Resources */}
+
                     <div className="lg:col-span-2">
                         <h4 className="text-white font-bold mb-6 tracking-wide">Resources</h4>
                         <ul className="space-y-4">
@@ -61,7 +64,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Newsletter */}
+
                     <div className="lg:col-span-4 bg-slate-800/50 p-8 rounded-[2rem] border border-slate-700/50">
                         <h4 className="text-white font-bold mb-3 tracking-wide">Monthly Updates</h4>
                         <p className="text-sm text-slate-400 mb-6">Join 10,000+ advocates receiving news on our accessibility roadmap.</p>
@@ -83,7 +86,7 @@ export default function Footer() {
 
                 </div>
 
-                {/* Bottom Bar */}
+
                 <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
                     <p className="flex items-center gap-1.5">
                         &copy; {currentYear} AbleHub Inc. Crafted with <Heart className="w-4 h-4 text-rose-500 fill-rose-500" /> for everyone.

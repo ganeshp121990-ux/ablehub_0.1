@@ -1,135 +1,178 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-import { Heart, Target, Lightbulb, Link as LinkIcon, Calendar, ArrowRight } from "lucide-react";
+import Image from "next/image"
+
+const carouselItems = [
+    {
+        title: "Step In",
+        desc: "Start your journey in a welcoming space",
+        icon: (
+            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+            </svg>
+        ),
+        color: "bg-blue-50",
+        ring: "ring-blue-100"
+    },
+    {
+        title: "Stay Safe",
+        desc: "Verified profiles and secure connections",
+        icon: (
+            <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+        ),
+        color: "bg-purple-50",
+        ring: "ring-purple-100"
+    },
+    {
+        title: "Find Friends",
+        desc: "Meet like-minded people and build connections",
+        icon: (
+            <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+        ),
+        color: "bg-emerald-50",
+        ring: "ring-emerald-100"
+    },
+    {
+        title: "Have Fun",
+        desc: "Enjoy games, activities and social moments",
+        icon: (
+            <svg className="w-8 h-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        ),
+        color: "bg-amber-50",
+        ring: "ring-amber-100"
+    }
+];
 
 export default function About() {
-    const timeline = [
-        { year: "2024", title: "The Ideation", desc: "Recognized the glaring accessibility gaps in modern health-tech platforms." },
-        { year: "2025", title: "Beta Launch", desc: "Rolled out the first WCAG AA compliant community prototype to 500 initial users." },
-        { year: "2026", title: "AbleHub 1.0", desc: "Secured seed funding and officially launched the fully-featured public platform." }
-    ];
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const values = [
-        { icon: Heart, title: "Radical Empathy", desc: "We design first for the margins, ensuring nobody is left behind by technology." },
-        { icon: Target, title: "Uncompromising Quality", desc: "Accessibility isn't an overlay. It's built into the very foundation of our code." },
-        { icon: Lightbulb, title: "Continuous Evolution", desc: "We listen to our community's needs and rapidly adapt our tools." },
-        { icon: LinkIcon, title: "Secure Connection", desc: "Privacy is a human right. We protect your space with enterprise-grade security." }
-    ];
-
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveIndex((current) => (current + 1) % carouselItems.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
     return (
-        <section id="about" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-            <div className="container mx-auto px-6 max-w-7xl">
+        <section id="about" className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
 
-                {/* Founder Story Section */}
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="relative"
-                    >
-                        {/* Abstract Headshot Placeholder */}
-                        <div className="relative w-full max-w-md aspect-[4/5] mx-auto lg:mx-0 rounded-[2.5rem] overflow-hidden bg-slate-100 shadow-2xl border-4 border-white z-10">
-                            {/* Instead of a missing image, use a classy abstract gradient placeholder */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-500 opacity-90"></div>
-                            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8 text-center bg-black/10">
-                                <span className="text-sm font-bold tracking-widest uppercase mb-2 opacity-80">HealthTech Founder & CEO</span>
-                                <span className="text-3xl font-extrabold pb-4 border-b-2 border-white/20">Umangbhai</span>
-                            </div>
-                        </div>
-                        {/* Decor */}
-                        <div className="absolute top-1/2 -left-12 -translate-y-1/2 w-64 h-64 bg-primary-200/50 rounded-full blur-[60px] -z-10"></div>
-                        <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-200/50 rounded-full blur-[60px] -z-10"></div>
-                    </motion.div>
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-50/80 rounded-full blur-[120px] -z-10 -translate-x-1/3 translate-y-1/3" />
+            </div>
 
+            <div className="container mx-auto px-4 sm:px-6 max-w-[1200px] relative z-10">
+
+                <div className="max-w-3xl mb-24 md:mb-32">
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                            We build what the <span className="text-primary-600">industry overlooked.</span>
-                        </h2>
-                        <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-                            <p>
-                                AbleHub wasn't born in a boardroom. It was created out of sheer frustration with digital platforms that treated accessibility as an afterthought or a compliance checklist.
-                            </p>
-                            <p>
-                                I watched family members struggle to connect with support networks simply because buttons lacked contrast, or websites couldn't be navigated without a mouse. The digital world was moving fast, but it was leaving millions behind.
-                            </p>
-                            <p className="font-medium text-slate-900 border-l-4 border-primary-500 pl-4 py-1">
-                                "Our mission is simple: to build the most profoundly accessible digital community space on the internet."
-                            </p>
-                        </div>
+                        <h2 className="text-sm font-bold text-blue-600 tracking-widest uppercase mb-4">Our Mission</h2>
+                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-8 text-balance">
+                            We build what the  <span className="text-[#6B2B77]">industry overlooked.</span>
+                        </h3>
+                        <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl text-pretty">
+                            Our app is built for the disability community, creating a caring and supportive social space where members can connect, share experiences, and build genuine friendships. It offers a safe environment that encourages social interaction at a comfortable pace, helping users feel valued and included. Designed for the NDIS community, the platform provides opportunities to chat, play games, and meet like-minded people in a positive and respectful space..
+                        </p>
                     </motion.div>
                 </div>
 
-                {/* Values & Timeline Grid */}
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 mb-32">
 
-                    {/* Core Values (Takes 7 cols) */}
-                    <div className="lg:col-span-7">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-bold tracking-wide mb-8 border border-slate-200">
-                            Our Principles
-                        </div>
-                        <div className="grid sm:grid-cols-2 gap-6">
-                            {values.map((v, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                                    className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:border-primary-100 hover:bg-white hover:shadow-xl transition-all"
-                                >
-                                    <div className="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center mb-6">
-                                        <v.icon className="w-6 h-6" />
-                                    </div>
-                                    <h4 className="text-xl font-bold text-slate-900 mb-3">{v.title}</h4>
-                                    <p className="text-slate-600 text-sm leading-relaxed">{v.desc}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
+                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="relative"
+                    >
 
-                    {/* Timeline (Takes 5 cols) */}
+                        <div className="relative w-full aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-[2.5rem] overflow-hidden bg-slate-100 shadow-soft group">
+                            <img
+                                src="/Able_Logo.svg"
+                                alt="Founder"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+
+                            <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[2.5rem] transition-colors group-hover:ring-black/5"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+
+                        <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-blue-100/50 rounded-full blur-3xl -z-10"></div>
+                    </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="lg:col-span-5 bg-slate-900 rounded-[2.5rem] p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden"
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="flex flex-col justify-center"
                     >
-                        {/* Background subtle glow */}
-                        <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-600/30 rounded-full blur-[80px]"></div>
+                        <div className="text-slate-900 font-serif text-6xl text-blue-200 mb-4 font-bold tracking-tight">"</div>
 
-                        <div className="flex items-center gap-3 mb-10 relative z-10">
-                            <Calendar className="w-6 h-6 text-primary-400" />
-                            <h3 className="text-2xl font-bold">The Journey</h3>
+                        <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-10 text-pretty">
+                            <p>
+                                We focus on meaningful connection and everyday enjoyment, helping users build friendships that bring companionship and social confidence. The app encourages interaction in a way that feels natural and supportive, offering a space where people can relax, engage, and enjoy shared experiences. It’s about creating opportunities for connection and care, making social participation easier and more rewarding.
+                            </p>
+
                         </div>
-
-                        <div className="space-y-10 relative z-10">
-                            {timeline.map((item, i) => (
-                                <div key={i} className="relative pl-8">
-                                    {/* Timeline Line */}
-                                    {i !== timeline.length - 1 && (
-                                        <div className="absolute left-[11px] top-8 bottom-[-40px] w-[2px] bg-slate-800 rounded-full"></div>
-                                    )}
-                                    {/* Timeline Dot */}
-                                    <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full border-4 border-slate-900 bg-primary-500 shadow-[0_0_0_2px_rgba(30,41,59,1)]"></div>
-
-                                    <div className="text-primary-400 font-bold font-mono text-sm mb-1">{item.year}</div>
-                                    <h4 className="text-lg font-bold mb-2">{item.title}</h4>
-                                    <p className="text-slate-400 text-sm">{item.desc}</p>
-                                </div>
-                            ))}
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 rounded-full bg-slate-100 overflow-hidden ring-2 ring-white shadow-soft">
+                                <img src="/Able_Logo.svg" alt="Umangbhai" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <div className="font-bold text-slate-900">Umangbhai</div>
+                                <div className="text-sm font-medium text-slate-500">Founder & CEO</div>
+                            </div>
                         </div>
                     </motion.div>
-
                 </div>
+
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="relative overflow-hidden w-full max-w-4xl mx-auto rounded-[2.5rem] bg-slate-50/50 border border-slate-100 p-8 lg:p-12 shadow-sm hover:shadow-md transition-shadow"
+                >
+                    <div className="relative h-64 md:h-56">
+                        {carouselItems.map((item, idx) => (
+                            <div
+                                key={idx}
+                                className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col items-center text-center justify-center ${activeIndex === idx ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'}`}
+                            >
+                                <div className={`w-20 h-20 rounded-2xl ${item.color} flex items-center justify-center mb-6 ring-1 shadow-sm ${item.ring}`}>
+                                    {item.icon}
+                                </div>
+                                <h4 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 tracking-tight">{item.title}</h4>
+                                <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-md text-pretty">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="flex justify-center gap-3 mt-8">
+                        {carouselItems.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setActiveIndex(idx)}
+                                aria-label={`Go to slide ${idx + 1}`}
+                                className={`h-2.5 rounded-full transition-all duration-300 ${activeIndex === idx ? 'w-8 bg-blue-600 shadow-sm' : 'w-2.5 bg-slate-200 hover:bg-slate-300'}`}
+                            />
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

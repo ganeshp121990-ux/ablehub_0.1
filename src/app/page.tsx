@@ -2,8 +2,6 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
 import ProblemSolution from "@/components/ProblemSolution";
-import Features from "@/components/Features";
-import Accessibility from "@/components/Accessibility";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -21,17 +19,10 @@ export default function Home() {
         <Hero />
         <SocialProof />
         <ProblemSolution />
-        <Features />
-        <Accessibility />
-
         <About />
-
         <ScreenshotsCarousel />
-        
         <FAQ />
         <Contact />
-
-
       </main>
 
       <Footer />
