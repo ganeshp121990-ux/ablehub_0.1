@@ -30,7 +30,7 @@ export default function Contact() {
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-                    
+
                     <div className="max-w-xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-bold tracking-wide mb-8 border border-primary-100">
                             Get in Touch
@@ -44,7 +44,7 @@ export default function Contact() {
                             Have a question or need support? Get in touch and our team will be happy to assist you. We aim to respond quickly and provide the help you need.
                         </p>
 
-                        
+
                         <div className="space-y-8 mb-12">
                             <div className="flex gap-4 items-start">
                                 <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
@@ -67,11 +67,11 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        
+
                         <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                             <a href="mailto:hello@ablehub.app" className="flex items-center gap-4 text-slate-700 hover:text-primary-600 transition-colors group mb-4">
                                 <Mail className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
-                                <span className="font-semibold text-lg">hello@ablehub.app</span>
+                                <span className="font-semibold text-lg">admin@ablehub.com.au</span>
                             </a>
                             <a href="tel:+18005551234" className="flex items-center gap-4 text-slate-700 hover:text-primary-600 transition-colors group">
                                 <Phone className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
@@ -80,9 +80,9 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    
+
                     <div className="relative">
-                        
+
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120%] bg-gradient-to-br from-primary-50 to-secondary-50 rounded-[3rem] -z-10 rotate-3 scale-105 opacity-50"></div>
 
                         <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden">

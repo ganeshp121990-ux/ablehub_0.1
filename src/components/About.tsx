@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image"
 
 const carouselItems = [
@@ -146,21 +146,36 @@ export default function About() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="relative overflow-hidden w-full max-w-4xl mx-auto rounded-[2.5rem] bg-slate-50/50 border border-slate-100 p-8 lg:p-12 shadow-sm hover:shadow-md transition-shadow"
                 >
-                    <div className="relative h-64 md:h-56">
-                        {carouselItems.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col items-center text-center justify-center ${activeIndex === idx ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'}`}
+                    <div className="relative h-64 md:h-56 flex items-center justify-center overflow-hidden">
+
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeIndex}
+                                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -40, scale: 0.96 }}
+                                transition={{
+                                    duration: 0.6,
+                                    ease: [0.22, 1, 0.36, 1]
+                                }}
+                                className="absolute inset-0 flex flex-col items-center text-center justify-center"
                             >
-                                <div className={`w-20 h-20 rounded-2xl ${item.color} flex items-center justify-center mb-6 ring-1 shadow-sm ${item.ring}`}>
-                                    {item.icon}
+
+                                <div className={`w-20 h-20 rounded-2xl ${carouselItems[activeIndex].color} flex items-center justify-center mb-6 ring-1 shadow-sm ${carouselItems[activeIndex].ring}`}>
+                                    {carouselItems[activeIndex].icon}
                                 </div>
-                                <h4 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 tracking-tight">{item.title}</h4>
-                                <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-md text-pretty">
-                                    {item.desc}
+
+                                <h4 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                                    {carouselItems[activeIndex].title}
+                                </h4>
+
+                                <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-md">
+                                    {carouselItems[activeIndex].desc}
                                 </p>
-                            </div>
-                        ))}
+
+                            </motion.div>
+                        </AnimatePresence>
+
                     </div>
                     <div className="flex justify-center gap-3 mt-8">
                         {carouselItems.map((_, idx) => (
