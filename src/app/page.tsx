@@ -16,7 +16,10 @@ export default function Home() {
     "@type": "Organization",
     name: "AbleHub",
     url: "https://ablehub.com.au",
-    logo: "https://ablehub.com.au/favicon.ico",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://ablehub.com.au/favicon.ico"
+    },
     sameAs: [
       "https://www.linkedin.com",
       "https://www.facebook.com"
@@ -39,6 +42,7 @@ export default function Home() {
         <ScreenshotsCarousel />
         <FAQ />
         <Contact />
+
       </main>
 
       <Footer />
