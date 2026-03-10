@@ -1,13 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { XCircle, CheckCircle2, HeartHandshake, Eye, Ear, BrainCircuit } from "lucide-react";
+import { HeartHandshake, Eye, Ear, BrainCircuit } from "lucide-react";
 
-const problems = [
-    { text: "Complex interfaces that ignore diverse cognitive needs." },
-    { text: "Poor contrast and tiny text causing eye strain." },
-    { text: "Lack of screen reader support or keyboard navigation." },
-];
+
 
 const solutions = [
     {
@@ -47,45 +43,18 @@ export default function ProblemSolution() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-                        
+                <div className="max-w-3xl mx-auto">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100"
                     >
-                        <div className="flex items-center gap-3 mb-8">
-                            <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center">
-                                <XCircle className="w-6 h-6 text-red-500" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-slate-900">The Problem</h3>
-                        </div>
-
-                        <div className="space-y-6">
-                            {problems.map((problem, i) => (
-                                <div key={i} className="flex gap-4 items-start">
-                                    <XCircle className="w-6 h-6 text-red-400 shrink-0 mt-0.5" />
-                                    <p className="text-slate-600 text-lg">{problem.text}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                        
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        <div className="flex items-center gap-3 mb-8">
+                        <div className="flex items-center justify-center gap-3 mb-8">
                             <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center">
                                 <HeartHandshake className="w-6 h-6 text-primary-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">The AbleHub Solution</h3>
+                            <h3 className="text-2xl md:text-3xl font-bold text-slate-900">The AbleHub Solution</h3>
                         </div>
 
                         <div className="space-y-6">
@@ -93,7 +62,7 @@ export default function ProblemSolution() {
                                 <motion.div
                                     key={i}
                                     whileHover={{ scale: 1.02 }}
-                                    className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex gap-5 transition-all duration-300"
+                                    className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-5 items-start sm:items-center transition-all duration-300"
                                 >
                                     <div className={`w-14 h-14 rounded-xl ${solution.bg} flex items-center justify-center shrink-0`}>
                                         <solution.icon className={`w-7 h-7 ${solution.color}`} />
@@ -106,7 +75,6 @@ export default function ProblemSolution() {
                             ))}
                         </div>
                     </motion.div>
-
                 </div>
             </div>
         </section>

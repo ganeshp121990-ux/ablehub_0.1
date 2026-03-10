@@ -127,12 +127,9 @@ export default function About() {
 
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 rounded-full bg-slate-100 overflow-hidden ring-2 ring-white shadow-soft">
-                                <img src="/Able_Logo.svg" alt="Umangbhai" className="w-full h-full object-cover" />
-                            </div>
+
                             <div>
-                                <div className="font-bold text-slate-900">Umangbhai</div>
-                                <div className="text-sm font-medium text-slate-500">Founder & CEO</div>
+
                             </div>
                         </div>
                     </motion.div>
