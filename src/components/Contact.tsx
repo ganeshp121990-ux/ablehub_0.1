@@ -9,19 +9,31 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSuccess(true);
-            setFormData({ name: "", email: "", message: "" });
+            if (response.ok) {
+                setIsSuccess(true);
+                setFormData({ name: "", email: "", message: "" });
+                setTimeout(() => setIsSuccess(false), 5000);
+            } else {
+                console.error("Failed to send message");
+            }
+        } catch (error) {
+            console.error("Email failed:", error);
+        }
 
-
-            setTimeout(() => setIsSuccess(false), 5000);
-        }, 1500);
+        setIsSubmitting(false);
     };
 
     return (
@@ -71,11 +83,11 @@ export default function Contact() {
                         <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                             <a href="mailto:hello@ablehub.app" className="flex items-center gap-4 text-slate-700 hover:text-primary-600 transition-colors group mb-4">
                                 <Mail className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
-                                <span className="font-semibold text-lg">admin@ablehub.com.au</span>
+                                <span className="font-semibold text-lg">dev@ablehub.com.au</span>
                             </a>
                             <a href="tel:+18005551234" className="flex items-center gap-4 text-slate-700 hover:text-primary-600 transition-colors group">
                                 <Phone className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
-                                <span className="font-semibold text-lg">1-800-555-1234</span>
+                                <span className="font-semibold text-lg">           </span>
                             </a>
                         </div>
                     </div>
