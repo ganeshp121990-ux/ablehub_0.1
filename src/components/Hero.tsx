@@ -69,7 +69,7 @@ export default function Hero() {
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#6B2B77]/5 rounded-full blur-[100px] -z-10"></div>
 
 
-                        <div className="relative w-[299px] h-[610px] bg-slate-900 rounded-[3.2rem] p-3 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-slate-800 animate-levitate transition-all duration-500 hover:[animation-play-state:paused]">
+                        <div className="relative w-[290px] h-[620px] bg-slate-900 rounded-[3.2rem] p-3 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-slate-800 animate-levitate transition-all duration-500 hover:[animation-play-state:paused]">
 
 
                             <div className="relative w-full h-full bg-white rounded-[2.4rem] overflow-hidden border border-black shadow-inner">
