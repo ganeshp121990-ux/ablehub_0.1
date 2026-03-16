@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.app.ablehub",
+               "sha256_cert_fingerprints": ["17:D7:B8:92:2C:EF:6E:60:ED:19:8C:EB:5E:D8:0C:52:E7:5F:6F:3D:B8:88:AB:53:8E:C8:4F:35:E7:57:43:E9"] }
+}]
