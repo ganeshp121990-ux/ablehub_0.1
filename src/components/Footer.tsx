@@ -47,15 +47,25 @@ export default function Footer() {
 
 
                 <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-                    <p className="flex items-center gap-1.5">
-                        &copy; {currentYear} AbleHub Inc. Crafted with <Heart className="w-4 h-4 text-rose-500 fill-rose-500" /> for everyone.
-                    </p>
-                    <div className="flex gap-6">
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-                        <a href="#" className="hover:text-white transition-colors">Cookies</a>
-                    </div>
-                </div>
+  <p className="flex items-center gap-1.5">
+    &copy; {currentYear} AbleHub Inc. Crafted with{" "}
+    <Heart className="w-4 h-4 text-rose-500 fill-rose-500" /> for everyone.
+  </p>
+
+  <div className="flex gap-6">
+    <Link href="/privacy-policy" className="hover:text-white transition-colors">
+      Privacy Policy
+    </Link>
+
+    <Link href="/terms-of-service" className="hover:text-white transition-colors">
+      Terms of Service
+    </Link>
+
+    <Link href="/cookies" className="hover:text-white transition-colors">
+      Cookies
+    </Link>
+  </div>
+</div>
 
             </div>
         </footer>
