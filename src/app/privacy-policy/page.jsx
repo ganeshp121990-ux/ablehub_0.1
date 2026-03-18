@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
           <div>
             <h2 className="text-2xl font-semibold mb-3">9. Contact Us</h2>
             <p className="text-muted-foreground">
-              Email: hello@ablehub.app <br />
+              Email: dev@ablehub.com.au <br />
               Phone: -------- <br />
               Address: --------
             </p>
