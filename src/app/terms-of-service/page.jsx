@@ -1,167 +1,195 @@
 export const metadata = {
   title: "Terms of Service | Able Hub",
-  description: "Read the Terms of Service for Able Hub services and website usage.",
+  description: "Read the Terms of Service for Able Hub platform.",
 };
 
 export default function TermsOfService() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 text-gray-800">
       <h1 className="text-4xl font-bold text-blue-900 mb-4">
-        Terms of Service
+        Terms & Conditions - AbleHub AU
       </h1>
-      <p className="mb-6">Last Updated: [Insert Date]</p>
+      <p className="mb-6">Last Updated: 31-03-2026</p>
 
-      <section className="space-y-6">
-        <p>
-          Welcome to Able Hub. These Terms of Service ("Terms") govern your use
-          of our website and services. By accessing or using our services, you
-          agree to these Terms.
-        </p>
+      <section className="space-y-8">
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            1. About Our Services
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">1. Introduction</h2>
           <p>
-            Able Hub provides disability support services including support
-            coordination, plan management, and community participation services.
+            These Terms & Conditions (“Terms”) govern your use of the AbleHub AU website and mobile application (“Platform”), operated by AbleHub Pty Ltd (“AbleHub AU”, “we”, “us”, “our”).
+            <br /><br />
+            By accessing or using the Platform, you agree to be bound by these Terms.
+            <br />
+            If you do not agree, you must not use the Platform.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            2. Eligibility
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">2. Eligibility</h2>
+          <p>To use AbleHub AU, you must:</p>
           <ul className="list-disc ml-6">
-            <li>Eligible under NDIS or applicable programs</li>
-            <li>Provide accurate information</li>
-            <li>Legally capable of agreements</li>
+            <li>Be at least 18 years old, or</li>
+            <li>Have consent from a parent, guardian, or authorised representative</li>
+          </ul>
+          <p className="mt-2">
+            By using the Platform, you confirm that you meet these requirements.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold text-blue-800">3. Nature of the Platform</h2>
+          <p>AbleHub AU is a connection platform that allows:</p>
+          <ul className="list-disc ml-6">
+            <li>Participants to connect with service providers</li>
+            <li>Users to engage socially and join community features</li>
+            <li>Access to events, job listings, and activities</li>
+          </ul>
+
+          <p className="mt-2 font-semibold">Important:</p>
+          <p>AbleHub AU does not:</p>
+          <ul className="list-disc ml-6">
+            <li>Provide medical advice</li>
+            <li>Provide direct care services</li>
+            <li>Guarantee outcomes from providers or opportunities listed</li>
+          </ul>
+
+          <p className="mt-2">We act as a facilitator only.</p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold text-blue-800">4. User Accounts</h2>
+          <p>You are responsible for:</p>
+          <ul className="list-disc ml-6">
+            <li>Maintaining the confidentiality of your account</li>
+            <li>All activity under your account</li>
+            <li>Providing accurate and up-to-date information</li>
+          </ul>
+
+          <p className="mt-2">We reserve the right to suspend or terminate accounts that:</p>
+          <ul className="list-disc ml-6">
+            <li>Contain false information</li>
+            <li>Violate these Terms</li>
+            <li>Pose a risk to other users</li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            3. Website Use
-          </h2>
-          <p>You agree not to misuse the website or engage in unlawful activity.</p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            4. Service Agreements
-          </h2>
-          <p>
-            All services are governed by separate agreements that define scope,
-            responsibilities, and fees.
+          <h2 className="text-2xl font-semibold text-blue-800">5. User Conduct</h2>
+          <p>You agree not to:</p>
+          <ul className="list-disc ml-6">
+            <li>Misrepresent your identity or credentials</li>
+            <li>Post harmful, abusive, or inappropriate content</li>
+            <li>Harass, exploit, or discriminate against other users</li>
+            <li>Upload false service or job listings</li>
+            <li>Use the Platform for unlawful purposes</li>
+          </ul>
+          <p className="mt-2">
+            We may remove content or restrict access at our discretion.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            5. Payments & Funding
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">6. Provider Listings & Services</h2>
           <ul className="list-disc ml-6">
-            <li>NDIS or private funding must be valid</li>
-            <li>You are responsible for uncovered costs</li>
-            <li>Invoices must be paid on time</li>
+            <li>Providers are responsible for the accuracy of their listings</li>
+            <li>Users must independently verify services before engaging</li>
+          </ul>
+          <p className="mt-2">AbleHub AU does not guarantee:</p>
+          <ul className="list-disc ml-6">
+            <li>Quality of services</li>
+            <li>Availability</li>
+            <li>Outcomes</li>
+          </ul>
+          <p className="mt-2">
+            You engage providers at your own discretion and risk.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold text-blue-800">7. Jobs & Opportunities</h2>
+          <ul className="list-disc ml-6">
+            <li>Job listings are provided by third parties</li>
+            <li>AbleHub AU does not verify all employers or roles</li>
+          </ul>
+          <p className="mt-2">
+            We are not responsible for employment outcomes or listing accuracy.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold text-blue-800">8. Social & Community Features</h2>
+          <p>
+            Users may post content and interact with others.
+          </p>
+          <p className="mt-2">
+            By posting content, you grant AbleHub AU a non-exclusive, royalty-free licence to use, display, and distribute that content within the Platform.
+          </p>
+          <p className="mt-2">We may remove content that:</p>
+          <ul className="list-disc ml-6">
+            <li>Violates guidelines</li>
+            <li>Poses safety risks</li>
+            <li>Is inappropriate</li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            6. Cancellation Policy
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">9. Privacy</h2>
           <p>
-            Cancellation fees may apply if sufficient notice is not provided, in
-            line with NDIS guidelines.
+            Your use of the Platform is also governed by our Privacy Policy.
+            <br />
+            We take reasonable steps to protect your data but cannot guarantee absolute security.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            7. Third-Party Services
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">10. Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law, AbleHub AU is not liable for:</p>
+          <ul className="list-disc ml-6">
+            <li>Any loss, damage, or injury from using the Platform</li>
+            <li>User interactions</li>
+            <li>Third-party services</li>
+            <li>Job outcomes</li>
+          </ul>
+          <p className="mt-2">Use of the Platform is at your own risk.</p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold text-blue-800">11. Indemnity</h2>
           <p>
-            We are not responsible for services provided by third-party
-            providers.
+            You agree to indemnify AbleHub AU from any claims, damages, or losses arising from your use of the Platform or breach of these Terms.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            8. No Professional Advice
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">12. Termination</h2>
           <p>
-            Content on this website is informational only and does not replace
-            professional advice.
+            We may suspend or terminate your access if you breach these Terms or engage in harmful behaviour.
+            <br />
+            You may stop using the Platform at any time.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            9. Limitation of Liability
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">13. Changes to Terms</h2>
           <p>
-            Able Hub is not liable for indirect damages, loss of data, or service
-            interruptions.
+            We may update these Terms at any time. Continued use means acceptance.
           </p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            10. Privacy
-          </h2>
-          <p>
-            We handle your data in accordance with our Privacy Policy and
-            applicable laws.
-          </p>
+          <h2 className="text-2xl font-semibold text-blue-800">14. Governing Law</h2>
+          <p>These Terms are governed by the laws of Victoria, Australia.</p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            11. Intellectual Property
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-800">15. Contact</h2>
           <p>
-            All content is owned by Able Hub and cannot be reused without
-            permission.
+            AbleHub AU Pty Ltd <br />
+            Email: connect@ablehub.com.au <br />
+            ablehub.com.au
           </p>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            12. Termination
-          </h2>
-          <p>
-            We may suspend services for misuse, violations, or safety concerns.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            13. Changes to Terms
-          </h2>
-          <p>
-            Terms may be updated at any time. Continued use means acceptance.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            14. Governing Law
-          </h2>
-          <p>These Terms are governed by the laws of Australia.</p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold text-blue-800">
-            15. Contact Us
-          </h2>
-          <p>
-            Email: dev@ablehub.com.au <br />
-            Phone: ----- <br />
-            Address: -----
-          </p>
-        </div>
       </section>
     </main>
   );
