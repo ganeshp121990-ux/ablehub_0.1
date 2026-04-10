@@ -4,7 +4,8 @@
       {
         "appID": "69FTJDCPXA.com.app.ablehub",
         "paths": [
-          "/event/*"
+          "/event/*",
+          "/event"
         ]
       }
     ]
