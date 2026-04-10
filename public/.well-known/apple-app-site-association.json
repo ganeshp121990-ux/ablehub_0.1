@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "com.app.ablehub",
+        "paths": [
+          "/event/*"
+        ]
+      }
+    ]
+  }
+}
