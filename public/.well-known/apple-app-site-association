@@ -1,12 +1,18 @@
 {
   "applinks": {
+    "apps": [],
     "details": [
       {
-        "appID": "69FTJDCPXA.com.app.ablehub",
+        "appID": "N7VA4H7PF8.com.app.ablehub",
         "paths": [
           "*"
         ]
       }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "N7VA4H7PF8.com.app.ablehub"
     ]
   }
 }
